@@ -1,2 +1,0 @@
-this is demo file for git gub
-i am changing conatin in file
