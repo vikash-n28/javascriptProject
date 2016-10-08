@@ -1,19 +1,26 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html>
 <body>
   <head>Hello</head>
 <p>The ins element represent inserted (added) text.</p>
+=======
 <html lang ="en-us">
 <head>
 <title></title>
 </head>
 <body>
+>>>>>>> demoo
 <nav>
   <a href="/html/">HTML</a> |
   <a href="/css/">CSS</a> |
   <a href="/js/">JavaScript</a> |
   <a href="/jquery/">jQuery</a>
 </nav>
+<<<<<<< HEAD
 <p>My favorite <ins>color</ins> is red.</p>
+
+=======
+>>>>>>> demoo
 </body>
 </html>
