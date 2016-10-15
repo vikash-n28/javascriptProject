@@ -1,0 +1,119 @@
+<!--
+*@fileName:equality.html
+*@createBy:vikash kumar prasad
+*date:10/10/2016
+*purpose:Random article with digital clock-->
+
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <title>Random Article</title>
+
+    <style>
+        body {
+            background-color: #FA5504;
+        }
+
+        #dc {
+            height: 200px;
+            width: 800px;
+            margin: auto;
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            padding-top: 230px;
+            font-family: Orbitron;
+            text-align: center;
+            color: white;
+            font-size: 100px;
+        }
+
+        #table1 {
+            text-align: center;
+            font-size: 50px;
+            padding-left: 450px;
+            padding-top: 60px;
+            color: white;
+        }
+    </style>
+
+    <script language="javascript" type="text/javascript">
+        /**
+         *@function , loads at Body onload
+         */
+        function Timer() {
+            //create date object
+            var currentime = new Date();
+            var hour = currentime.getHours();
+            var min = currentime.getMinutes();
+            var sec = currentime.getSeconds();
+
+            min = Ticking(min);
+            sec = Ticking(sec);
+
+            var clock = document.getElementById("dc");
+            //display AM & PM
+            if (hour > 12) {
+                clock.innerHTML = hour + ":" + min + ":" + sec + "  " + "PM";
+            } else {
+                clock.innerHTML = hour + ":" + min + ":" + sec + "  " + "AM";
+            }
+
+            display();
+
+            var time = setTimeout('Timer()', 1000)
+        }
+        /**
+         *@function{param} , param: accepts input
+         * Add zero to single digit number
+         */
+        function Ticking(ticVal) {
+            if (ticVal < 10) {
+                ticVal = "0" + ticVal;
+            }
+            return ticVal;
+        }
+        //JSON text
+        var json = '{"author" : [' + '{"authorname":"Edgar Allan Poe" , "datepub":"January 1843" , "publiser":"James Russell Lowell"},' +
+            '{"authorname":"Edgar Allan Poe" , "datepub":"November 1846" , "publiser":"Godeys Ladys Book"},' +
+            '{"authorname":"Margaret Mitchell" , "datepub":"1996" , "publiser":"Charles Scribners Sons"},' +
+            '{"authorname":"Ralph Ellison" , "datepub":"1952" , "publiser":"Random House"},' +
+            '{"authorname":"Ralph Ellison" , "datepub":"1999" , "publiser":"Random House"},' +
+            '{"authorname":"John Kennedy Toole " , "datepub":"6 October 2016" , "publiser":" Penguin Classics "}' + ']}'
+            //creat JSON object
+        var obj = JSON.parse(json);
+        /**
+         *@function , display random JSON object
+         */
+        function display() {
+            var i = Math.floor(Math.random() * obj.author.length);
+            if (i <= obj.author.length) {
+                document.getElementById("r1").innerHTML = obj.author[i].authorname;
+                document.getElementById("r2").innerHTML = obj.author[i].datepub;
+                document.getElementById("r3").innerHTML = obj.author[i].publiser;
+            }
+        }
+    </script>
+</head>
+
+<body onload="Timer();">
+    <div id="auth">
+        <table id="table1">
+            <tr>
+                <th id="r1"></th>
+            </tr>
+            <tr>
+                <th id="r2"></th>
+            </tr>
+            <tr>
+                <th id="r3"></th>
+            </tr>
+    </div>
+    <div id="dc"></div>
+</body>
+
+</html>

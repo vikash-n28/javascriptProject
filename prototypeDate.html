@@ -1,0 +1,57 @@
+<!--
+*@fileName:calculator.html
+*@createBy:vikash kumar prasad
+*date:15/10/2016
+*purpose:Extend the date instance using method to return next day-->
+<!DOCTYPE html>
+
+<head>
+    <title></title>
+    <style>
+      #dis   {
+            text-align: center;
+            font-style:normal ;
+            font-size:200%;
+            color:white;
+       }
+
+    </style>
+    <script>
+        /**
+         *@function , loads at Body onload
+         */
+        function digidate() {
+            //Creats date object
+            var curtime = new Date();
+
+            var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            var hour = curtime.getHours();
+            var min = curtime.getMinutes();
+            var sec = curtime.getSeconds();
+            var day = curtime.getDay();
+            var mon = curtime.getMonth();
+            var year = curtime.getFullYear();
+            var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            //Extends Dates to print next day
+            Date.prototype.nextDate = function() {
+
+                    if (day < 6) {
+                        return days[day + 1];
+
+                    } else return days[0];
+                }
+                /**
+                 *@Writes Present Day time And Next Day Name .
+                 */
+            document.getElementById("dis").innerHTML ="Today Date  & Time is : " +hour + ": " + min + ": " + sec + " " + days[day] + " " + months[mon] + " " + year;
+            setTimeout("digidate()", 1000)
+            document.getElementById("dis").innerHTML += "<br>" + "Tomorrow Day is : " + curtime.nextDate();
+        }
+    </script>
+</head>
+
+<body onload="digidate();" bgcolor="#FA041E">
+    <div id="dis"></div>
+</body>
+
+</html>

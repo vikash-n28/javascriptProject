@@ -1,0 +1,84 @@
+<!--
+*@fileName:equality.html
+*@createBy:vikash kumar prasad
+*date:13/10/2016
+*purpose:Make a function to check equality of two objects.-->
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Property Equality</title>
+
+    <style>
+        #dis {
+            font-size: 50px;
+            color: red;
+        }
+
+        #tab1,
+        #text1 {
+            padding-top: 5%;
+        }
+
+        td.space {
+            border-radius: 5px;
+            border: 2px solid #949599;
+            height: 50px;
+            padding: 5px;
+            width: 100px;
+        }
+
+        input {
+            outline: none;
+        }
+    </style>
+    <script type="text/javascript">
+        /**
+         *@constructor
+         *@Definition for object
+         */
+        function prop(first) {
+            this.first = first;
+        }
+        /**
+         *@function , loads after calling
+         */
+        function equal() {
+            var a = document.getElementById("fn").value;
+            var b = document.getElementById("ln").value;
+
+            //creating own object using object constructor
+            var aprops = new prop(a);
+            var bprops = new prop(b);
+
+            //checking property value
+            if (aprops.first == bprops.first) {
+                document.getElementById("dis").innerHTML = "Given Object are same !";
+            } else {
+                document.getElementById("dis").innerHTML = "Given Object are not same !";
+            }
+        };
+    </script>
+</head>
+
+<body>
+    <h2 id="text1" align="center">Comparison Between Two Object</h2>
+    <table id="tab1" align="center">
+        <tr>
+            <th>Enter First Object :</th>
+            <td class="space"><input type="text" name="fn" id="fn"></td>
+        </tr>
+        <tr>
+            <th>Enter Second Object :</th>
+            <td class="space"><input type="text" name="ln" id="ln"></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center"><input type="button" onclick="equal();" id="opt" value="Compare"></td>
+        </tr>
+    </table>
+    <p id="dis" align="center"></p>
+</body>
+
+</html>
