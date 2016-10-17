@@ -8,50 +8,54 @@
 
 <head>
 
-  <meta charset="utf-8">
-  <title>Adding Prefix</title>
-  <style>
-    body {
-      padding-top: 20%;
-    }
-    #text1  {
-       font-size: 30px;
-    }
+    <meta charset="utf-8">
+    <title>Adding Prefix</title>
+    <style>
+        body {
+            padding-top: 20%;
+        }
 
-    #pre {
-      margin-top: 2%;
-      heigth:80%;
-      width:20%;
-    }
-    #opt {
-      background-color: red;
-      color:white;
-      border-style:inherit;;
-      border-radius: 10px;
-      height: 10%;
-      width: 9%;
-    }
+        #text1 {
+            font-size: 30px;
+        }
+
+        #pre {
+            margin-top: 2%;
+            heigth: 80%;
+            width: 20%;
+        }
+
+        #opt {
+            background-color: red;
+            color: white;
+            border-style: inherit;
+            ;
+            border-radius: 10px;
+            height: 10%;
+            width: 9%;
+        }
     </style>
     <script type="text/javascript">
-    /**
-     *@function , loads after calling
-     */
+        /**
+         *@function , loads after calling
+         */
         function outfix() {
-             var s1="BridgeLabz ";
-             var s2=document.getElementById("pre").value;
+            var s1 = "BridgeLabz ";
+            var s2 = document.getElementById("pre").value;
 
-             //either var s3=s1+s2; operation will use to cancadinate
-             var s3=s1.concat(s2);
-            document.getElementById("res").innerHTML=s3;
+            //either var s3=s1+s2; operation will use to cancadinate
+            var s3 = s1.concat(s2);
+            document.getElementById("res").innerHTML = s3;
         }
     </script>
 
     <head>
 
-        <body align="center"><div id="text1">Enter Text</div>
-              <input type="text" id="pre" placeholder="Enter Text To Be Add" required>
-              <input type="button" value="Get Output" id="opt" onclick="outfix();" >
-              <p id="res"> </p>
+        <body align="center">
+            <div id="text1">Enter Text</div>
+            <input type="text" id="pre" placeholder="Enter Text To Be Add" required>
+            <input type="button" value="Get Output" id="opt" onclick="outfix();">
+            <p id="res"> </p>
         </body>
 
 </html>
