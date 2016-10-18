@@ -1,0 +1,107 @@
+<!--
+*@fileName:curryingFun.html
+*@createBy:vikash kumar prasad
+*date:18/10/2016
+*purpose:calculator program using Currying method-->
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <title>Chaining Function</title>
+
+    <style>
+        #head {
+            text-align: center;
+            margin-top: 10%;
+            font-size: 200%;
+        }
+
+        #inp1 {
+            margin-left: 40%;
+            margin-top: 2%;
+            border-width: thin;
+            line-height: 30px;
+            width: 150px;
+            background-color: #D1CECE;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 150%;
+        }
+
+        #but {
+            margin-left: 45%;
+            margin-top: 1%;
+            height: 30px;
+            width: 150px;
+            border-radius: 5px;
+            border-width: thin;
+            font-size: 150%
+        }
+
+        #opt {
+            margin-left: 2%;
+            height: 30px;
+            width: 150px;
+            border-radius: 5px;
+        }
+
+        #res {
+            text-align: center;
+            margin-top: 5%;
+            font-size: 220%;
+            color: white;
+        }
+    </style>
+    <script>
+        /*initialize value*/
+        var calcu = 0;
+        
+        /**
+         *@function , loads after calling
+         *@use to perform currying method
+         */
+        function operation(opt) {
+
+            return function(num) {
+
+                /*convert input string to integer*/
+                var x = parseInt(num);
+
+                /*switching depends on user input operation*/
+                switch (opt) {
+                    case "div":
+                        calcu /= x;
+                        break;
+                    case "mul":
+                        calcu *= x;
+                        break;
+                    case "add":
+                        calcu += x;
+                        break;
+                    case "sub":
+                        calcu -= x;
+                        break;
+                }
+                /*display output*/
+                document.getElementById("res").innerHTML = calcu;
+            }
+
+        }
+    </script>
+</head>
+
+<body bgcolor="#F7593C">
+    <p id="head">Enter Number To perform Operation !</p>
+    <input type="text" id="inp1" name="inp1">
+    <select id="opt" name="opt"><option value="div">Division [/]</option>
+    <option value="mul">Multiplication [*]</option>
+    <option value="add">Addition [+]</option>
+    <option value="sub">Substraction [-]</option></select><br>
+    <input type="button" id="but" value="Result" onclick="operation(opt.value)(inp1.value);">
+    <p id="res"></p>
+</body>
+
+</html>
