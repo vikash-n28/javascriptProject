@@ -1,0 +1,77 @@
+<!--
+*@fileName:AddRowColumn.html
+*@createBy:vikash kumar prasad
+*date:18/10/2016
+*purpose:function to add row and column in same table-->
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Row Column</title>
+
+    <style>
+        table,
+        td {
+            border: 1px solid black;
+            background-color: #F1F9C1;
+        }
+
+        tr {
+            background-color: #8AC62D;
+        }
+    </style>
+    <script>
+        /**
+         *@function , loads after call
+         *@use to add rows for exsiting table
+         **/
+        function callrow() {
+
+            var tb1 = document.getElementById("table");
+
+            /*check length of existing row */
+            var rrow = tb1.rows.length;
+            var row = tb1.insertRow(rrow);
+            for (var i = 0; i < tb1.rows[0].cells.length; i++) {
+                var ncell = row.insertCell(i);
+                var ele = document.createElement("input");
+                ncell.appendChild(ele);
+            }
+        }
+        /**
+         *@function , loads after call
+         *@use to add column for exsiting table
+         **/
+        function callcol() {
+
+            var tb2 = document.getElementById("table");
+
+            /*check length of existing column*/
+            var cout = tb2.rows[0].cells.length;
+            for (var j = 0; j < tb2.rows.length; j++) {
+                var ncol = tb2.rows[j].insertCell(cout);
+                var element = document.createElement("input");
+                ncol.appendChild(element);
+
+            }
+        }
+    </script>
+</head>
+
+<body bgcolor="#BEC593">
+
+    <input type="button" id="but1" value="Add Row" onclick="callrow();">
+    <input type="button" id="but2" value="Add Column" onclick="callcol();">
+    <table id="table">
+        <tr id="arow">
+            <td><input type="text"></td>
+        </tr>
+    </table>
+</body>
+
+</html>
