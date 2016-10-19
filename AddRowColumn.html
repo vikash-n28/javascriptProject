@@ -19,10 +19,22 @@
         td {
             border: 1px solid black;
             background-color: #F1F9C1;
+            border-radius: 7px;
         }
 
         tr {
             background-color: #8AC62D;
+        }
+
+        input {
+            border-radius: 5px;
+            border-width: thin;
+        }
+
+        #but1,
+        #but2 {
+            line-height: 50px;
+            width: 100px;
         }
     </style>
     <script>
@@ -69,7 +81,7 @@
     <input type="button" id="but2" value="Add Column" onclick="callcol();">
     <table id="table">
         <tr id="arow">
-            <td><input type="text"></td>
+            <td><input type="text" id="tdtxt"></td>
         </tr>
     </table>
 </body>

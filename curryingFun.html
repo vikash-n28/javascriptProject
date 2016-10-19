@@ -45,20 +45,21 @@
             margin-left: 2%;
             height: 30px;
             width: 150px;
+            text-align: right;
             border-radius: 5px;
         }
 
         #res {
             text-align: center;
             margin-top: 5%;
-            font-size: 220%;
+            font-size: 450%;
             color: white;
         }
     </style>
     <script>
         /*initialize value*/
-        var calcu = 0;
-        
+        var calcu=0;
+
         /**
          *@function , loads after calling
          *@use to perform currying method
@@ -73,16 +74,28 @@
                 /*switching depends on user input operation*/
                 switch (opt) {
                     case "div":
+                    if(calcu == 0) {
+                      calcu=x;
+                    }
+                    else{
                         calcu /= x;
+                      }
                         break;
                     case "mul":
+                    if(calcu == 0) {
+                      calcu=1;
+                    }
                         calcu *= x;
                         break;
                     case "add":
                         calcu += x;
                         break;
                     case "sub":
+                    if(calcu == 0) {
+                      calcu=x;
+                    } else {
                         calcu -= x;
+                      }
                         break;
                 }
                 /*display output*/
@@ -94,7 +107,7 @@
 </head>
 
 <body bgcolor="#F7593C">
-    <p id="head">Enter Number To perform Operation !</p>
+    <p id="head">Enter Number To perform Calculator Operation !</p>
     <input type="text" id="inp1" name="inp1">
     <select id="opt" name="opt"><option value="div">Division [/]</option>
     <option value="mul">Multiplication [*]</option>
