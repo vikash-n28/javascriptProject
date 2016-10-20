@@ -1,0 +1,96 @@
+<!--
+*@fileName:student_form.html
+*@createBy:vikash kumar prasad
+*date:18/10/2016
+*purpose:fMake student information form with fields a)Name b)Roll c)Age.
+*  On submitting the form the information should be displayed on another page-->
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Form</title>
+
+    <style>
+         ::-webkit-input-placeholder {
+            color: #F0A89E;
+            font-size: 18px;
+        }
+
+        #head {
+            text-align: center;
+            font-size: 50px;
+            color: white;
+        }
+
+        #stu1,
+        #stu2,
+        #stu3,
+        #stu4 {
+            font-size: 30px;
+            margin-left: 480px;
+            color: white
+        }
+
+        #fn,
+        #ln,
+        #rl,
+        #ag {
+            line-height: 30px;
+            width: 200px;
+            text-align: center;
+            border-radius: 5px;
+            border-width: thin;
+            font-size: 18px;;
+        }
+
+        #fn {
+
+            margin-left: 50px;
+        }
+
+        #ln {
+            margin-top: 10px;
+            margin-left: 53px;
+        }
+
+        #rl {
+            margin-top: 10px;
+            margin-left: 27px;
+        }
+
+        #ag {
+            margin-top: 10px;
+            margin-left: 136px;
+        }
+
+        #but {
+          margin-top: 50px;
+          margin-left: 600px;
+          height: 50px;
+          width:130px;
+          border-radius: 7px;
+          border-width: thin;
+          font-size: 20px;
+        }
+    </style>
+    <head>
+
+        <body bgcolor="#0C66C6">
+            <form action="student_form_action.html">
+                <p id=head>Student Form</p>
+                <div id="stu1"> First Name :<input type="text" id="fn" name="fn" placeholder="First Name"></div>
+                <div id="stu2"> Last Name :<input type="text" id="ln" name="ln" placeholder="Last Name"></div>
+                <div id="stu3"> Roll Number :<input type="text" id="rl" name="rl" placeholder="Roll No"></div>
+                <div id="stu4"> Age :<input type="text" id="ag" name="ag" placeholder="Age"></div>
+                <input type="submit" value="Submit" id="but">
+            </form>
+
+
+        </body>
+
+</html>
