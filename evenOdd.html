@@ -1,0 +1,112 @@
+<!--
+*@fileName:evenOdd.html
+*@createBy:vikash kumar prasad
+*date:20/10/2016
+*purpose:Calculate how many even and odd number between 0 to 20 using filter function in js-->
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Even and Odd</title>
+
+    <style>
+        #head {
+            text-align: center;
+            font-size: 40px;
+            color:white;
+        }
+
+        #txt1,
+        #txt2,
+        #but {
+            padding-left: 33%;
+            font-size: 25px;
+            font-style: oblique;
+            color:white;
+        }
+
+        #in1,
+        #in2 {
+            line-height: 40px;
+            width: 160px;
+            border-radius: 5px;
+            border-width: thin;
+            text-align: center;
+            font-size: 18px;
+            margin-top: 30px;
+        }
+
+        #in1 {
+            margin-left: 60px;
+        }
+
+        #in2 {
+            margin-left: 34px;
+        }
+
+        #odd,
+        #even {
+            margin-top: 7%;
+            margin-left: 30px;
+            width: 200px;
+            height: 40px;
+            border-radius: 5px;
+            border-width: thin;
+            font-size: 18px;
+        }
+
+        #tale {
+          color:white;
+          font-size: 40px;
+          text-align: center;
+
+        }
+    </style>
+    <script>
+        //value store in array
+        var x = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20]
+
+        //return an array of all values in the x that are odd
+        function oddcall(x) {
+            return x = (x % 2 == 1);
+        }
+
+        //return an array of all values in the x that are even
+        function evencall(x) {
+            return x = (x % 2 == 0);
+        }
+        /**
+         *@function , loads after call
+         *@use to display odd number Between number
+         **/
+        function oddNum() {
+            document.getElementById("tale").innerHTML =x.filter(oddcall);
+
+        }
+        /**
+         *@function , loads after call
+         *@use to display even number Between number
+         **/
+        function evenNum() {
+
+            document.getElementById("tale").innerHTML = x.filter(evencall);
+
+        }
+    </script>
+</head>
+
+<body bgcolor="#238A09">
+    <p id="head">Even/Odd Between Two Number</p>
+    <div id="txt1">Initial Number :<input type="text" id="in1" name="in1" placeholder="0" disabled></div>
+    <div id="txt2">Terminal Number :<input type="text" id="in2" name="in2" placeholder="20" disabled></div>
+    <div id="but"><input type="button" id="even" value="EVEN" onclick="evenNum();">
+        <input type="button" id="odd" value="ODD" onclick="oddNum();"></div>
+    <p id="tale"></p>
+</body>
+
+</html>
