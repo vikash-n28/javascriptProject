@@ -1,0 +1,162 @@
+<!--
+*@fileName:hashtable.html
+*@createBy:vikash kumar prasad
+*date:18/10/2016
+*purpose: Implementation of HashTable using js Protype-->
+
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Implementation Hash Table</title>
+
+    <style>
+    #head {
+      padding-left: 3%;
+
+    }
+
+    #mid1, #head1 {
+      font-size: 35px;
+    }
+
+    #mid  {
+
+      padding-left: 60%;
+      margin-bottom: 80%;
+    }
+
+    #txt1 ,#txt2  {
+      padding-left: 1%;
+      font-size: 25px;
+    }
+
+    #but1 {
+        height: 35px;
+        width: 120px;
+        margin-top: 3%;
+        margin-left: 15%;
+    }
+
+    #id1 {
+      margin-left: 5%;
+    }
+    #id2 {
+      margin-left: 2%;
+    }
+
+    #id1 ,#id2 ,#id3 {
+      line-height: 30px;
+      margin-top: 2%;
+      text-align: center;
+    }
+
+    .move{
+      width: 600px;
+      height:200px;
+     border: 5px;
+     padding-right: : 60px;
+            top:4px;
+      left:500px;
+      position:absolute;
+
+
+    }
+    </style>
+    <script>
+
+        var  HashEntry = function(key, value) {
+          this.key = key;
+          this.value = value;
+          this.nextEntry=undefined;
+        };
+
+        HashEntry.prototype = {
+          getKey :function()  {
+            return this.key;
+          },
+          getValue :function()  {
+            return this.value;
+          },
+          setNext :function(entry)  {
+            return this.nextEntry=entry;
+          },
+          getNext :function()  {
+            return this.nextEntry;
+          }
+        };
+
+        var HashTable = function() {
+          this.tableSize = 100;
+          //this will be holding HashEntry(s)
+          this.table = [];
+        };
+
+        HashTable.prototype = {
+          hashFunction: function(input)  {
+            //return an hash
+            return input % this.tableSize;
+          },
+          put : function(key, value)  {
+            var hash = this.hashFunction(key);
+            var table = this.table;
+            if(table[hash] === undefined) {
+              table[hash] = new HashEntry(key, value);
+              console.log(table[hash]);
+            }
+            else {
+
+              var curr = table[hash];
+              while(curr.getNext()!== undefined) {
+                curr = curr.getNext();
+              }
+              curr.setNext(new HashEntry(key, value));
+              console.log(this.nextEntry);
+            }
+          },
+          get : function(key) {
+            var hash =  this.hashFunction(key);
+            var table = this.table;
+            var currEntry = table[hash];
+            if(currEntry === undefined)  {
+                document.getElementById("res").innerHTML= "NULL Value";
+            }
+
+            if(currEntry.getKey() === key) {
+              document.getElementById("res").innerHTML = currEntry.getValue();
+            } else {
+              while(currEntry.getNext() !== undefined) {
+                currEntry = currEntry.getNext();
+                  if(currEntry.getKey() === key){
+                    console.log(currEntry.getValue());
+                  }
+
+
+                  //document.getElementById("res").innerHTML = currEntry.getValue();
+
+              }
+            }
+          }
+        };
+
+        var hashTable = new HashTable();
+
+    </script>
+  </head>
+  <body bgcolor= "#E74C3C">
+    <div id="head"><p id="head1">Entry Data</p>
+    <div id="txt1">Enter Id :<input type="text" id="id1" name="id1" placeholder="ID"></div>
+    <div id="txt2">Enter Name :<input type="text" id="id2" name="id2" placeholder="Name"></div>
+    <input type="button" id="but1" value="Submit" onclick="hashTable.put(id1.value, id2.value);"></div>
+    <div class="move">
+    <div id="mid" ><p id="mid1">Search</p>
+    <div id="txt3" >Enter Valid Id:<input type="text" id="id3" name="id3" placeholder="Search"></div>
+    <input type="button" id="but2"value="Search" onclick="hashTable.get(id3.value);">
+    <p id="res"></p></div>
+  </div>
+  </body>
+  </html>
