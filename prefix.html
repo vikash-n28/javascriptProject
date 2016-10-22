@@ -12,7 +12,7 @@
     <title>Adding Prefix</title>
     <style>
         body {
-            padding-top: 20%;
+            padding-top: 10%;
         }
 
         #text1 {
@@ -20,18 +20,22 @@
         }
 
         #pre {
+          line-height: 40px;
             margin-top: 2%;
             heigth: 80%;
             width: 20%;
+            border-radius: 5px;
+            border-width: thin;
+            text-align: center;
         }
 
         #opt {
-            background-color: red;
+            background-color: #86F370;
             color: white;
             border-style: inherit;
             border-radius: 10px;
-            height: 10%;
-            width: 9%;
+            height: 40px;
+            width: 100px;
         }
     </style>
     <script type="text/javascript">
@@ -50,7 +54,7 @@
 
     <head>
 
-        <body align="center">
+        <body align="center" bgcolor="#A1B309">
             <div id="text1">Enter Text</div>
             <input type="text" id="pre" placeholder="Enter Text To Be Add" required>
             <input type="button" value="Get Output" id="opt" onclick="outfix();">
